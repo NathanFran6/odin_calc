@@ -1,0 +1,32 @@
+.calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.num {
+    height:100px;
+    width:100px;
+}
+
+#output {
+    border: 2px solid black;
+    height:50px;
+    width:300px;
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.ops {
+    font-size: 25px;
+}
+
+.extra {
+    height:50px;
+    width:100px;
+}
+.basis {
+    flex-basis:100%;
+}

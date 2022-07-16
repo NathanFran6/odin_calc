@@ -15,22 +15,22 @@
         <button class="num 1" onclick="display(1)">1</button>
         <button class="num 2" onclick="display(2)">2</button>
         <button class="num 3" onclick="display(3)">3</button>
-        <button class="num add" onclick="save('add')">+</button>
+        <button class="num add" onclick="saveNum(),displayOp('+'), saveOp()">+</button>
         <div class="basis"></div>
         <button class="num 4" onclick="display(4)">4</button>
         <button class="num 5" onclick="display(5)">5</button>
         <button class="num 6" onclick="display(6)">6</button>
-        <button class="num add" onclick="save('sub')">-</button>
+        <button class="num add" onclick="saveNum(), displayOp('-'), saveOp()">-</button>
         <div class="basis"></div>
         <button class="num 7" onclick="display(7)">7</button>
         <button class="num 8" onclick="display(8)">8</button>
         <button class="num 9" onclick="display(9)">9</button>
-        <button class="num add" onclick="save('mult')">x</button>
+        <button class="num add" onclick="saveNum(), displayOp('x'), saveOp()">x</button>
         <div class="basis"></div>
         <button class="extra" onclick="clean()">Clear</button>
-        <button class="extra">=</button>
+        <button class="extra" onclick="result(), output()">=</button>
         <button class="num">NF</button>
-        <button class="num add" onclick="save('div')">/</button>
+        <button class="num add" onclick="saveNum(), displayOp('/'), saveOp()">/</button>
     </div>
     
 </body>

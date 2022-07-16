@@ -34,6 +34,15 @@ function display(num) {
     output.appendChild(dis)
 }
 
+function displayOp(op) {
+    let dis = document.createElement('p')
+    let oper = document.createTextNode(op)
+    dis.appendChild(oper)
+    dis.setAttribute('class','ops')
+    let output = document.getElementById('output')
+    output.appendChild(dis)
+}
+
 function clean() {
     const e = document.getElementById('output')
 
@@ -42,10 +51,33 @@ function clean() {
     }
 }
 
-//Need to figure out how to save the first number, then save the operation, then get teh second and do the operation.
-function save(op) {
+function saveOp() {
     const e = document.getElementById('output')
+    op=e.textContent
+    clean()
+    console.log(op)
+    return op  
+}
 
+function saveNum() {
+    const e = document.getElementById('output')
     num=e.textContent
-    
+    clean()
+    console.log(num)
+    return num
+}
+
+function result() {
+    const e = document.getElementById('output')
+    num2=e.textContent
+    clean()
+    console.log(num2)
+    return num2
+}
+//My console log shows me all the data I need, I just need to hold onto that data to be able to calculate it together,
+//but that is harder than it sounds b/c I can't figure out how to get the return valuesa nd put them into a different function.
+
+
+function output() {
+    console.log(num1,num2,op)
 }

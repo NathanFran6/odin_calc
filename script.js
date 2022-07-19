@@ -11,7 +11,7 @@ function subtract(array) {
     for (let i =1; i <array.length; i++){
         diff = array[0] -=array[i]
     }
-    console.log(diff)
+    display(diff)
 }
 
 function multiply(array) {
@@ -19,7 +19,7 @@ function multiply(array) {
     for (let i =0; i <array.length; i++) {
         prod *= array[i]
     }
-    console.log(prod)
+    display(prod)
 }
 
 function divide(array) {
@@ -27,7 +27,7 @@ function divide(array) {
     for (let i =1; i<array.length;i++) {
         div= array[0]/=array[i]
     }
-    console.log(div)
+    display(div)
 }
 
 //Arrays! A wonderful thing for keeping data global and at hand. 

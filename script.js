@@ -1,30 +1,40 @@
-function add(a,b) {
-    return a+b
+function add(array) {
+    let sum = 0
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i]
+    }
+    display(sum)
 }
 
-function subtract(a,b) {
-    return a-b
+function subtract(array) {
+    let diff = 0
+    for (let i =1; i <array.length; i++){
+        diff = array[0] -=array[i]
+    }
+    console.log(diff)
 }
 
-function multiply(a,b) {
-    return a*b
+function multiply(array) {
+    let prod = 1
+    for (let i =0; i <array.length; i++) {
+        prod *= array[i]
+    }
+    console.log(prod)
 }
 
-function divide(a,b) {
-    return a/b
+function divide(array) {
+    div = 0
+    for (let i =1; i<array.length;i++) {
+        div= array[0]/=array[i]
+    }
+    console.log(div)
 }
 
-function operate() {
-    let num1 = prompt('What is your first number?')
-    let num2= prompt('What is your second number')
-    console.log(
-    add(num1, num2),
-    subtract(num1, num2),
-    multiply(num1, num2),
-    divide(num1, num2)
-    )
-}
+//Arrays! A wonderful thing for keeping data global and at hand. 
+let nums = []
+let ops= []
 
+//Displays each number 
 function display(num) {
     let dis = document.createElement('p')
     let number = document.createTextNode(num)
@@ -34,6 +44,7 @@ function display(num) {
     output.appendChild(dis)
 }
 
+//Displays the operations with the last number
 function displayOp(op) {
     let dis = document.createElement('p')
     let oper = document.createTextNode(op)
@@ -43,6 +54,7 @@ function displayOp(op) {
     output.appendChild(dis)
 }
 
+//Wipe screen after each number or operation is inputed
 function clean() {
     const e = document.getElementById('output')
 
@@ -51,33 +63,43 @@ function clean() {
     }
 }
 
+//Saves the operation and pushes it to the array (ops)
 function saveOp() {
     const e = document.getElementById('output')
     op=e.textContent
     clean()
-    console.log(op)
-    return op  
+    ops.push(op) 
 }
 
+//First number save and push to the array (nums)
 function saveNum() {
     const e = document.getElementById('output')
     num=e.textContent
     clean()
-    console.log(num)
-    return num
+    nums.push(num)
 }
 
-function result() {
+//Second number save and push to the array (nums)
+function saveNum2() {
     const e = document.getElementById('output')
     num2=e.textContent
+    nums.push(num2)
     clean()
-    console.log(num2)
-    return num2
 }
-//My console log shows me all the data I need, I just need to hold onto that data to be able to calculate it together,
-//but that is harder than it sounds b/c I can't figure out how to get the return valuesa nd put them into a different function.
-
 
 function output() {
-    console.log(num1,num2,op)
+    //Makes each number in the array into an integer 
+    const result = nums.map(x => parseInt(x,10))
+    //Calls each function based on the operation
+    if (ops[0]== '+') {
+        add(result)
+    }else if (ops[0]=='-') {
+        subtract(result)
+    }else if (ops[0]=='x') {
+        multiply(result)
+    }
+    else if (ops[0]=='/') {
+        divide(result)
+    }
+    
 }

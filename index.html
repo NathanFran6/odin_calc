@@ -9,9 +9,8 @@
     <title>Calculator - Odin Project</title>
 </head>
 <body>
-    <div class="calc"></div>
-        <div id="output">
-        </div>
+    <div class="calc">
+        <div id="output"></div>
         <button class="num 1" onclick="display(1)">1</button>
         <button class="num 2" onclick="display(2)">2</button>
         <button class="num 3" onclick="display(3)">3</button>
@@ -27,9 +26,9 @@
         <button class="num 9" onclick="display(9)">9</button>
         <button class="num add" onclick="saveNum(), displayOp('x'), saveOp()">x</button>
         <div class="basis"></div>
-        <button class="extra" onclick="clean()">Clear</button>
+        <button class="extra" onclick="clean(), wipe()">Clear</button>
+        <button class="num 9" onclick="display(0)">0</button>
         <button class="extra" onclick="saveNum2(), output()">=</button>
-        <button class="num">NF</button>
         <button class="num add" onclick="saveNum(), displayOp('/'), saveOp()">/</button>
     </div>
     

@@ -1,33 +1,25 @@
-function add(array) {
-    let sum = 0
-    for (let i = 0; i < array.length; i++) {
-        sum += array[i]
-    }
-    display(sum)
+function add(a,b) {
+    let sum = a+b
+    let rSum = Math.round(sum)
+    display(rSum)
 }
 
-function subtract(array) {
-    let diff = 0
-    for (let i =1; i <array.length; i++){
-        diff = array[0] -=array[i]
-    }
-    display(diff)
+function subtract(a,b) {
+    let diff = a-b
+    let rDiff = Math.round(diff)
+    display(rDiff)
 }
 
-function multiply(array) {
-    let prod = 1
-    for (let i =0; i <array.length; i++) {
-        prod *= array[i]
-    }
-    display(prod)
+function multiply(a,b) {
+    let prod = a*b
+    let rProd = Math.round(prod)
+    display(rProd)
 }
 
-function divide(array) {
-    div = 0
-    for (let i =1; i<array.length;i++) {
-        div= array[0]/=array[i]
-    }
-    display(div)
+function divide(a,b) {
+    div = a/b
+    let rDiv = Math.round(div)
+    display(rDiv)
 }
 
 //Arrays! A wonderful thing for keeping data global and at hand. 
@@ -61,6 +53,16 @@ function clean() {
     while (e.hasChildNodes()) {
         e.removeChild(e.firstChild)
     }
+
+}
+
+function wipe() {
+    for (elements in nums) {
+        nums.pop()
+    }
+    for (elements in ops) {
+        ops.pop()
+    }
 }
 
 //Saves the operation and pushes it to the array (ops)
@@ -87,19 +89,37 @@ function saveNum2() {
     clean()
 }
 
+
 function output() {
     //Makes each number in the array into an integer 
     const result = nums.map(x => parseInt(x,10))
+    console.log('Result: ' +result)
+    console.log(ops)
     //Calls each function based on the operation
+    //If it is the >1 equation, it adds the previous calcaution + the new number, and
+    //Then splices out the calculation and oeprator to make room for the next calculation.
     if (ops[0]== '+') {
-        add(result)
+        add(result[0], result[1])
+        nums.splice(0,2)
+        ops.splice(0,1)
     }else if (ops[0]=='-') {
-        subtract(result)
+        subtract(result[0], result[1])
+        nums.splice(0,2)
+        ops.splice(0,1)
     }else if (ops[0]=='x') {
-        multiply(result)
+        multiply(result[0], result[1])
+        nums.splice(0,2)
+        ops.splice(0,1)
     }
     else if (ops[0]=='/') {
-        divide(result)
+        if (result[1]== 0) {
+            display('Undefined')
+            wipe()
+        } else {
+            divide(result[0], result[1])
+            nums.splice(0,2)
+            ops.splice(0,1)
+        }
     }
-    
+
 }

@@ -1,5 +1,7 @@
 .calc {
     display: flex;
+    flex-wrap:wrap;
+    width:400px;
     justify-content: center;
     align-items: center;
     flex-wrap:wrap;
@@ -8,6 +10,11 @@
 .num {
     height:100px;
     width:100px;
+    background-color: #E5C27B;
+}
+
+.num:hover{
+    background-color: aqua;
 }
 
 #output {
